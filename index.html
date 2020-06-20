@@ -16,12 +16,10 @@
   <input id="8" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
   <input id="9" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
 
-
   <button onclick="teste()">teste</button>
-  <p id="teste"></p>
+  <input id="morte" type="text">
 
   <script src="municipios_data.json"></script>
-
   <script>
 
     var html = "<option value='none'>Escolha</option>"
@@ -34,49 +32,42 @@
     function changeFunc() {
       var selectBox = document.getElementById("municipios");
       var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-      console.log((dados[selectedValue].IDHM_Educacao)*100);
+      
+      console.log("mort ", dados[selectedValue].Mortalidade_infantil*100)
 
-      document.getElementById("1").value = dados[selectedValue].Mortalidade_infantil*100
+      document.getElementById("morte").value = dados[selectedValue].Mortalidade_infantil*100
+
+      document.getElementById("1").value = dados[selectedValue].Coleta_de_Lixo*100
       document.getElementById("2").value = dados[selectedValue].IDHM_Educacao*100
-      document.getElementById("3").value = dados[selectedValue].Grau_de_Urbanizacao*100
-      document.getElementById("4").value = dados[selectedValue].Renda_per_capita*100
-      document.getElementById("5").value = dados[selectedValue].Mortalidade_infantil*100
-      document.getElementById("6").value = dados[selectedValue].Mortalidade_infantil*100
-      document.getElementById("7").value = dados[selectedValue].Mortalidade_infantil*100
-      document.getElementById("8").value = dados[selectedValue].Mortalidade_infantil*100
-      document.getElementById("9").value = dados[selectedValue].Mortalidade_infantil*100
-
-
+      document.getElementById("3").value = dados[selectedValue].Renda_per_capita*100
+      document.getElementById("4").value = dados[selectedValue].Grau_de_Urbanizacao*100
+      document.getElementById("5").value = dados[selectedValue].Esgoto_Sanitario*100
+      document.getElementById("6").value = dados[selectedValue].Estab_por_mil_Hab*100
+      document.getElementById("7").value = dados[selectedValue].Doses_Aplicadas_mil_Hab*100
+      document.getElementById("8").value = dados[selectedValue].Razao_Medico_mil_Hab*100
+      document.getElementById("9").value = dados[selectedValue].Abastecimento_de_Agua*100
     }
-
-
     function teste() {
       var x = document.getElementById("1").value;
       //document.getElementById("teste").innerHTML = x/100*100;
 
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
-      myHeaders.append("Cod_IBGE", "3500105");
-      myHeaders.append("Mortalidade_infantil", "0.069779");
-      myHeaders.append("IDHM_Educacao", "0.75");
-      myHeaders.append("Renda_per_capita", "0.493077");
-      myHeaders.append("Grau_de_Urbanizacao", "0.7638");
-      myHeaders.append("Esgoto_Sanitario", "0.9903");
-      myHeaders.append("Estab_por_mil_Hab", "0.601063");
-      myHeaders.append("Doses_Aplicadas_mil_Hab", "0.318119");
-      myHeaders.append("Razao_Medico_mil_Hab", "0.496123");
-      myHeaders.append("Abastecimento_de_Agua", "0.9976");
-      myHeaders.append("Coleta_de_Lixo", "0.9989");
+      myHeaders.append("Mortalidade_infantil", "0");
+      myHeaders.append("Cod_IBGE", document.getElementById("municipios").value);
+      myHeaders.append("Coleta_de_Lixo", document.getElementById("1").value);
+      myHeaders.append("IDHM_Educacao", document.getElementById("2").value);
+      myHeaders.append("Renda_per_capita", document.getElementById("3").value);
+      myHeaders.append("Grau_de_Urbanizacao", document.getElementById("4").value);
+      myHeaders.append("Esgoto_Sanitario", document.getElementById("5").value);
+      myHeaders.append("Estab_por_mil_Hab", document.getElementById("6").value);
+      myHeaders.append("Doses_Aplicadas_mil_Hab", document.getElementById("7").value);
+      myHeaders.append("Razao_Medico_mil_Hab", document.getElementById("8").value);
+      myHeaders.append("Abastecimento_de_Agua", document.getElementById("9").value);
 
       myHeaders.append('Access-Control-Allow-Origin', '*');
 
-      var requestOptions = {
-        method: 'GET',
-        mode: "cors",
-        headers: myHeaders,
-        redirect: 'follow'
-      };
-
+      var requestOptions = { method: 'GET', headers: myHeaders, redirect: 'follow'};
       fetch("https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
