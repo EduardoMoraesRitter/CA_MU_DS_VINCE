@@ -1,0 +1,93 @@
+<!DOCTYPE html> <html> <body>
+
+    <label for="cars">Escolha o estado:</label>
+  
+    <select id="m">
+      <option value="none">Muni</option>
+    </select>
+  
+    <input id="1" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="2" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="3" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="4" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="5" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="6" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="7" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="8" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+    <input id="9" type="range" min="0" max="100" step="1" value="33" data-orientation="vertical">
+  
+  
+    <button onclick="teste()">teste</button>
+    <p id="teste"></p>
+  
+    
+  
+    <script>
+      function teste() {
+        var x = document.getElementById("1").value;
+        //document.getElementById("teste").innerHTML = x/100*100;
+  
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("GET", "https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1", true);
+  
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        // xhr.setRequestHeader("Cod_IBGE", "3500105");
+        // xhr.setRequestHeader("Mortalidade_infantil", "0.069779");
+        // xhr.setRequestHeader("IDHM_Educacao", "0.75");
+        // xhr.setRequestHeader("Renda_per_capita", "0.493077");
+        // xhr.setRequestHeader("Grau_de_Urbanizacao", "0.7638");
+        // xhr.setRequestHeader("Esgoto_Sanitario", "0.9903");
+        // xhr.setRequestHeader("Estab_por_mil_Hab", "0.601063");
+        // xhr.setRequestHeader("Doses_Aplicadas_mil_Hab", "0.318119");
+        // xhr.setRequestHeader("Razao_Medico_mil_Hab", "0.496123");
+        // xhr.setRequestHeader("Abastecimento_de_Agua", "0.9976");
+        // xhr.setRequestHeader("Coleta_de_Lixo", "0.9989");
+  
+        // xhr.send(null);
+        // //return xhr.responseText; 
+        // document.getElementById("teste").innerHTML = xhr.responseText
+  
+  
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Cod_IBGE", "3500105");
+        myHeaders.append("Mortalidade_infantil", "0.069779");
+        myHeaders.append("IDHM_Educacao", "0.75");
+        myHeaders.append("Renda_per_capita", "0.493077");
+        myHeaders.append("Grau_de_Urbanizacao", "0.7638");
+        myHeaders.append("Esgoto_Sanitario", "0.9903");
+        myHeaders.append("Estab_por_mil_Hab", "0.601063");
+        myHeaders.append("Doses_Aplicadas_mil_Hab", "0.318119");
+        myHeaders.append("Razao_Medico_mil_Hab", "0.496123");
+        myHeaders.append("Abastecimento_de_Agua", "0.9976");
+        myHeaders.append("Coleta_de_Lixo", "0.9989");
+  
+        myHeaders.append('Access-Control-Allow-Origin', '*');
+  
+        var requestOptions = {
+          method: 'GET',
+          mode: "cors",
+          headers: myHeaders,
+          redirect: 'follow'
+        };
+  
+        fetch("https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+          .catch(error => console.log('error', error));
+  
+      }
+  
+      var fs=require('fs');
+      var municipios = fs.readFileSync('municipios_data.json', 'utf8');
+  
+      console.log(municipios)
+  
+  //     var a = $("select#m").val();
+  // listKota.forEach(function(e){
+  //    a.append('<option value="'+ listCity.code +'">'+ listCity.cityname +'</option>');});
+  
+  
+  var teste
+    
+    </script> </body> </html>

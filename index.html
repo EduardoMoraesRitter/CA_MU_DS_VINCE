@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <label for="cars">Escolha o estado:</label>
+  <select id="municipios" onchange="changeFunc();"></select>
+
+  <input id="1" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="2" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="3" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="4" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="5" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="6" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="7" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="8" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+  <input id="9" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
+
+
+  <button onclick="teste()">teste</button>
+  <p id="teste"></p>
+
+  <script src="municipios_data.json"></script>
+
+  <script>
+
+    var html = "<option value='none'>Escolha</option>"
+    for (let index = 0; index < dados.length; index++) {
+      const e = dados[index];
+      html += "<option value=" + index + ">" + e.Cod_IBGE + "</option>"
+    }
+    document.getElementById("municipios").innerHTML = html;
+
+    function changeFunc() {
+      var selectBox = document.getElementById("municipios");
+      var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+      console.log((dados[selectedValue].IDHM_Educacao)*100);
+
+      document.getElementById("1").value = dados[selectedValue].Mortalidade_infantil*100
+      document.getElementById("2").value = dados[selectedValue].IDHM_Educacao*100
+      document.getElementById("3").value = dados[selectedValue].Grau_de_Urbanizacao*100
+      document.getElementById("4").value = dados[selectedValue].Renda_per_capita*100
+      document.getElementById("5").value = dados[selectedValue].Mortalidade_infantil*100
+      document.getElementById("6").value = dados[selectedValue].Mortalidade_infantil*100
+      document.getElementById("7").value = dados[selectedValue].Mortalidade_infantil*100
+      document.getElementById("8").value = dados[selectedValue].Mortalidade_infantil*100
+      document.getElementById("9").value = dados[selectedValue].Mortalidade_infantil*100
+
+
+    }
+
+
+    function teste() {
+      var x = document.getElementById("1").value;
+      //document.getElementById("teste").innerHTML = x/100*100;
+
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+      myHeaders.append("Cod_IBGE", "3500105");
+      myHeaders.append("Mortalidade_infantil", "0.069779");
+      myHeaders.append("IDHM_Educacao", "0.75");
+      myHeaders.append("Renda_per_capita", "0.493077");
+      myHeaders.append("Grau_de_Urbanizacao", "0.7638");
+      myHeaders.append("Esgoto_Sanitario", "0.9903");
+      myHeaders.append("Estab_por_mil_Hab", "0.601063");
+      myHeaders.append("Doses_Aplicadas_mil_Hab", "0.318119");
+      myHeaders.append("Razao_Medico_mil_Hab", "0.496123");
+      myHeaders.append("Abastecimento_de_Agua", "0.9976");
+      myHeaders.append("Coleta_de_Lixo", "0.9989");
+
+      myHeaders.append('Access-Control-Allow-Origin', '*');
+
+      var requestOptions = {
+        method: 'GET',
+        mode: "cors",
+        headers: myHeaders,
+        redirect: 'follow'
+      };
+
+      fetch("https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+
+    }
+
+
+  </script>
+</body>
+
+</html>
