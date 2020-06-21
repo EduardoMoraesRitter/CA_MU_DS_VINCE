@@ -67,9 +67,9 @@
 
       var myHeaders = {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET,POST,PUT",
-        "Origin": "http://google.com",
+        //"Access-Control-Allow-Origin": "*",
+        //"Access-Control-Allow-Methods": "GET,POST,PUT",
+        //"Origin": "http://google.com",
         "Cod_IBGE": "3500105",
         "Mortalidade_infantil": "0.069779",
         "idhm_educacao": "0.75",
@@ -85,8 +85,8 @@
       }
 
       var requestOptions = {
-        method: 'GET', mode: 'cors',//'no-cors', 
-        headers: myHeaders, redirect: 'follow'
+        method: 'GET', //mode: 'cors',//'no-cors', 
+        headers: myHeaders//, redirect: 'follow'
       };
       fetch("http://idsimulador.herokuapp.com/api", requestOptions)// erro no cors https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1
         .then(response => {

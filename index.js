@@ -4,6 +4,8 @@ var path = require('path');
 
 const cors = require('cors')
 
+app.use(cors())
+
 app.use('/muni', express.static('muni'));
 
 const https = require('https');
@@ -123,7 +125,7 @@ async function modelo(token, body) {
     })
 }
 
-app.get('/api', cors(), async function (event, res) {
+app.get('/api', async function (event, res) {
 
     //res.json(event.headers)
     //return "aaaaa"
