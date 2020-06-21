@@ -121,49 +121,50 @@ async function modelo(token, body) {
     })
 }
 
-app.get('/api', function (req, res) {
+app.get('/api', function (event, res) {
 
-    res.json(req.headers)
+    //res.json(event.headers)
     //return "aaaaa"
-    
     //return event.headers.Cod_IBGE
     
-    // let body = {
-    //         "fields": [
-    //             "Cod_IBGE",
-    //             "Mortalidade_infantil",
-    //             "IDHM_Educacao",
-    //             "Renda_per_capita",
-    //             "Grau_de_Urbanizacao",
-    //             "Esgoto_Sanitario",
-    //             "Estab_por_mil_Hab",
-    //             "Doses_Aplicadas_mil_Hab",
-    //             "Razao_Medico_mil_Hab",
-    //             "Abastecimento_de_Agua",
-    //             "Coleta_de_Lixo",
-    //             "$KM-K-Means"
-    //         ],
-    //         "values": [
-    //             [
-    //                 event.headers.Cod_IBGE,
-    //                 event.headers.Mortalidade_infantil,
-    //                 event.headers.IDHM_Educacao,
-    //                 event.headers.Renda_per_capita,
-    //                 event.headers.Grau_de_Urbanizacao,
-    //                 event.headers.Esgoto_Sanitario,
-    //                 event.headers.Estab_por_mil_Hab,
-    //                 event.headers.Doses_Aplicadas_mil_Hab,
-    //                 event.headers.Razao_Medico_mil_Hab,
-    //                 event.headers.Abastecimento_de_Agua,
-    //                 event.headers.Coleta_de_Lixo,
-    //                 'cluster-1'
-    //             ]
-    //         ]
-    //     }
+    let body = {
+            "fields": [
+                "Cod_IBGE",
+                "Mortalidade_infantil",
+                "IDHM_Educacao",
+                "Renda_per_capita",
+                "Grau_de_Urbanizacao",
+                "Esgoto_Sanitario",
+                "Estab_por_mil_Hab",
+                "Doses_Aplicadas_mil_Hab",
+                "Razao_Medico_mil_Hab",
+                "Abastecimento_de_Agua",
+                "Coleta_de_Lixo",
+                "$KM-K-Means"
+            ],
+            "values": [
+                [
+                    event.headers.Cod_IBGE,
+                    event.headers.Mortalidade_infantil,
+                    event.headers.IDHM_Educacao,
+                    event.headers.Renda_per_capita,
+                    event.headers.Grau_de_Urbanizacao,
+                    event.headers.Esgoto_Sanitario,
+                    event.headers.Estab_por_mil_Hab,
+                    event.headers.Doses_Aplicadas_mil_Hab,
+                    event.headers.Razao_Medico_mil_Hab,
+                    event.headers.Abastecimento_de_Agua,
+                    event.headers.Coleta_de_Lixo,
+                    'cluster-1'
+                ]
+            ]
+        }
         
-    // let token = await getToken()
+    let token = await getToken()
     
-    // return await modelo(token, body)
+    let retornoModelo = await modelo(token, body)
+
+    res.json(retornoModelo)
         
 });
 
