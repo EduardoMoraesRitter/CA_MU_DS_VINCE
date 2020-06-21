@@ -3,7 +3,7 @@
 
 <body>
 
-  <label>HHHHH Escolha o estado:</label>
+  <label>Escolha o estado:</label>
   <select id="municipios" onchange="changeFunc();"></select>
   <br><br>
   <input id="1" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical">
@@ -48,17 +48,17 @@
         headers: {
           "Content-Type": "application/json",
           "Cod_IBGE": document.getElementById("municipios").value,
-          "Mortalidade_infantil": document.getElementById("morte").value,
-          "idhm_educacao": document.getElementById("1").value,
-          "IDHM_Educacao": document.getElementById("1").value,
-          "Renda_per_capita": document.getElementById("2").value,
-          "Grau_de_Urbanizacao": document.getElementById("3").value,
-          "Esgoto_Sanitario": document.getElementById("4").value,
-          "Estab_por_mil_Hab": document.getElementById("5").value,
-          "Doses_Aplicadas_mil_Hab": document.getElementById("6").value,
-          "Razao_Medico_mil_Hab": document.getElementById("7").value,
-          "Abastecimento_de_Agua": document.getElementById("8").value,
-          "Coleta_de_Lixo": document.getElementById("9").value,
+          "Mortalidade_infantil": document.getElementById("morte").value/100,
+          "idhm_educacao": document.getElementById("1").value/100,
+          "IDHM_Educacao": document.getElementById("1").value/100,
+          "Renda_per_capita": document.getElementById("2").value/100,
+          "Grau_de_Urbanizacao": document.getElementById("3").value/100,
+          "Esgoto_Sanitario": document.getElementById("4").value/100,
+          "Estab_por_mil_Hab": document.getElementById("5").value/100,
+          "Doses_Aplicadas_mil_Hab": document.getElementById("6").value/100,
+          "Razao_Medico_mil_Hab": document.getElementById("7").value/100,
+          "Abastecimento_de_Agua": document.getElementById("8").value/100,
+          "Coleta_de_Lixo": document.getElementById("9").value/100,
         }
         //, redirect: 'follow'
       };
