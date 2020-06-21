@@ -131,6 +131,10 @@ app.get('/api', async function (event, res) {
     //return "aaaaa"
     //return event.headers.Cod_IBGE
 
+    console.log("---------------------------")
+    console.log(event.headers)
+    console.log("---------------------------")
+
     let body = {
         "fields": [
             "Cod_IBGE",
@@ -164,7 +168,7 @@ app.get('/api', async function (event, res) {
         ]
     }
 
-    console.log("AAAAAAAAAAAAAAAAAA body:", body)
+    console.log("BBBBBBBB body:", body)
 
     let token = await getToken()
 
