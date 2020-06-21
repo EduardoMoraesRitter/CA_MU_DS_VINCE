@@ -114,17 +114,34 @@
 
       //   console.log(xhr.responseText)
 
+      var requestOptions = {
+        method: 'GET', //mode: 'cors',//'no-cors', 
+        headers: {
+          "Content-Type": "application/json",
+          "Cod_IBGE": document.getElementById("municipios").value,
+          "Mortalidade_infantil": document.getElementById("morte").value,
+          "idhm_educacao": document.getElementById("1").value,
+          "IDHM_Educacao": document.getElementById("1").value,
+          "Renda_per_capita": document.getElementById("2").value,
+          "Grau_de_Urbanizacao": document.getElementById("3").value,
+          "Esgoto_Sanitario": document.getElementById("4").value,
+          "Estab_por_mil_Hab": document.getElementById("5").value,
+          "Doses_Aplicadas_mil_Hab": document.getElementById("6").value,
+          "Razao_Medico_mil_Hab": document.getElementById("7").value,
+          "Abastecimento_de_Agua": document.getElementById("8").value,
+          "Coleta_de_Lixo": document.getElementById("9").value,
+        }
+        //, redirect: 'follow'
+      };
 
       var url = 'http://idsimulador.herokuapp.com/api'
-      fetch(url)
+      fetch(url, requestOptions)
         .then(function (response) {
           return response.json();
         })
         .then(function (json) {
           console.log(json)
         })
-
-
 
     }
     var html = "<option value='none'>Escolha</option>"
