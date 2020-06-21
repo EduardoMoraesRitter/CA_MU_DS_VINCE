@@ -42,78 +42,7 @@
     }
     function teste() {
       var x = document.getElementById("1").value;
-      //document.getElementById("teste").innerHTML = x/100*100;
-
-      //var myHeaders = new Headers();
-      //myHeaders.append("Content-Type", "application/json");
-
-      // myHeaders.append("Origin", "http://google.com");
-      //myHeaders.append("Access-Control-Allow-Origin", "*");
-      // myHeaders.append("Access-Control-Allow-Credentials", "true");
-      // myHeaders.append("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-      // myHeaders.append("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
-
-      // myHeaders.append("Mortalidade_infantil", "0");
-      // myHeaders.append("Cod_IBGE", document.getElementById("municipios").value);
-      // myHeaders.append("Coleta_de_Lixo", document.getElementById("1").value);
-      // myHeaders.append("idhm_educacao", document.getElementById("2").value);
-      // myHeaders.append("Renda_per_capita", document.getElementById("3").value);
-      // myHeaders.append("Grau_de_Urbanizacao", document.getElementById("4").value);
-      // myHeaders.append("Esgoto_Sanitario", document.getElementById("5").value);
-      // myHeaders.append("Estab_por_mil_Hab", document.getElementById("6").value);
-      // myHeaders.append("Doses_Aplicadas_mil_Hab", document.getElementById("7").value);
-      // myHeaders.append("Razao_Medico_mil_Hab", document.getElementById("8").value);
-      // myHeaders.append("Abastecimento_de_Agua", document.getElementById("9").value);
-
-      // var myHeaders = {
-      //   "Content-Type": "application/json",
-      //   //"Access-Control-Allow-Origin": "*",
-      //   //"Access-Control-Allow-Methods": "GET,POST,PUT",
-      //   //"Origin": "http://google.com",
-      //   "Cod_IBGE": "3500105",
-      //   "Mortalidade_infantil": "0.069779",
-      //   "idhm_educacao": "0.75",
-      //   "IDHM_Educacao": "0.75",
-      //   "Renda_per_capita": "0.493077",
-      //   "Grau_de_Urbanizacao": "0.7638",
-      //   "Esgoto_Sanitario": "0.9903",
-      //   "Estab_por_mil_Hab": "0.601063",
-      //   "Doses_Aplicadas_mil_Hab": "0.318119",
-      //   "Razao_Medico_mil_Hab": "0.496123",
-      //   "Abastecimento_de_Agua": "0.9976",
-      //   "Coleta_de_Lixo": "0.9989"
-      // }
-
-      // var requestOptions = {
-      //   method: 'GET', //mode: 'cors',//'no-cors', 
-      //   headers: myHeaders//, redirect: 'follow'
-      // };
-      // fetch("http://idsimulador.herokuapp.com/api", requestOptions)// erro no cors https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1
-      //   .then(result => console.log(result))
-      //   .catch(error => console.log('error', error));
-
-
-
-      // var xhr = new XMLHttpRequest();
-      //   xhr.open("GET", "http://idsimulador.herokuapp.com/api", true);
-
-      //   xhr.setRequestHeader("Content-Type", "application/json");
-      //   xhr.setRequestHeader("Cod_IBGE", "3500105");
-      //   xhr.setRequestHeader("Mortalidade_infantil", "0.069779");
-      //   xhr.setRequestHeader("IDHM_Educacao", "0.75");
-      //   xhr.setRequestHeader("Renda_per_capita", "0.493077");
-      //   xhr.setRequestHeader("Grau_de_Urbanizacao", "0.7638");
-      //   xhr.setRequestHeader("Esgoto_Sanitario", "0.9903");
-      //   xhr.setRequestHeader("Estab_por_mil_Hab", "0.601063");
-      //   xhr.setRequestHeader("Doses_Aplicadas_mil_Hab", "0.318119");
-      //   xhr.setRequestHeader("Razao_Medico_mil_Hab", "0.496123");
-      //   xhr.setRequestHeader("Abastecimento_de_Agua", "0.9976");
-      //   xhr.setRequestHeader("Coleta_de_Lixo", "0.9989");
-
-      //   xhr.send(null);
-
-      //   console.log(xhr.responseText)
-
+      
       var requestOptions = {
         method: 'GET', //mode: 'cors',//'no-cors', 
         headers: {
@@ -134,13 +63,16 @@
         //, redirect: 'follow'
       };
 
+      console.log("AAAAAAAAAAAAAAAAAAAAA ", requestOptions)
+
       var url = 'http://idsimulador.herokuapp.com/api'
       fetch(url, requestOptions)
         .then(function (response) {
           return response.json();
         })
-        .then(function (json) {
-          console.log(json)
+        .then(data => {
+          console.log(data)
+          document.getElementById("morte").innerHTML = data*100;
         })
 
     }
