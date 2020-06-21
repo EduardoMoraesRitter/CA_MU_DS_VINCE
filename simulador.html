@@ -88,7 +88,7 @@
         method: 'GET', mode: 'cors',//'no-cors', 
         headers: myHeaders, redirect: 'follow'
       };
-      fetch("https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1", requestOptions)
+      fetch("http://idsimulador.herokuapp.com/api", requestOptions)// erro no cors https://6puqzz1q34.execute-api.us-east-1.amazonaws.com/v1
         .then(response => {
           console.log("AAAAAAAAAAAAAAA ", response)
           response.text()
