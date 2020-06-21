@@ -1,0 +1,23 @@
+<!DOCTYPE html> <html> <body>
+    <button onclick="teste()">teste</button>
+    <script>
+      function teste() {
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("GET", "https://www.google.com/", false);
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        // //xhr.setRequestHeader("Host", "potman.com");
+        // xhr.send();
+        // console.log(xhr.responseText)
+
+
+        var url = 'http://idsimulador.herokuapp.com/api'//'https://pokeapi.co/api/v2/pokemon/'//'https://www.google.com/'
+        fetch(url)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(json) {
+          console.log(json)
+          //document.querySelector('#debug').innerHTML = JSON.stringify(json.results)
+        })
+      }
+    </script></body></html>

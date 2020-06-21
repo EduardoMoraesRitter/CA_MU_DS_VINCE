@@ -94,25 +94,35 @@
 
 
 
-      var xhr = new XMLHttpRequest();
-        xhr.open("GET", "http://idsimulador.herokuapp.com/api", true);
-  
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("Cod_IBGE", "3500105");
-        xhr.setRequestHeader("Mortalidade_infantil", "0.069779");
-        xhr.setRequestHeader("IDHM_Educacao", "0.75");
-        xhr.setRequestHeader("Renda_per_capita", "0.493077");
-        xhr.setRequestHeader("Grau_de_Urbanizacao", "0.7638");
-        xhr.setRequestHeader("Esgoto_Sanitario", "0.9903");
-        xhr.setRequestHeader("Estab_por_mil_Hab", "0.601063");
-        xhr.setRequestHeader("Doses_Aplicadas_mil_Hab", "0.318119");
-        xhr.setRequestHeader("Razao_Medico_mil_Hab", "0.496123");
-        xhr.setRequestHeader("Abastecimento_de_Agua", "0.9976");
-        xhr.setRequestHeader("Coleta_de_Lixo", "0.9989");
-  
-        xhr.send(null);
+      // var xhr = new XMLHttpRequest();
+      //   xhr.open("GET", "http://idsimulador.herokuapp.com/api", true);
 
-        console.log(xhr.responseText)
+      //   xhr.setRequestHeader("Content-Type", "application/json");
+      //   xhr.setRequestHeader("Cod_IBGE", "3500105");
+      //   xhr.setRequestHeader("Mortalidade_infantil", "0.069779");
+      //   xhr.setRequestHeader("IDHM_Educacao", "0.75");
+      //   xhr.setRequestHeader("Renda_per_capita", "0.493077");
+      //   xhr.setRequestHeader("Grau_de_Urbanizacao", "0.7638");
+      //   xhr.setRequestHeader("Esgoto_Sanitario", "0.9903");
+      //   xhr.setRequestHeader("Estab_por_mil_Hab", "0.601063");
+      //   xhr.setRequestHeader("Doses_Aplicadas_mil_Hab", "0.318119");
+      //   xhr.setRequestHeader("Razao_Medico_mil_Hab", "0.496123");
+      //   xhr.setRequestHeader("Abastecimento_de_Agua", "0.9976");
+      //   xhr.setRequestHeader("Coleta_de_Lixo", "0.9989");
+
+      //   xhr.send(null);
+
+      //   console.log(xhr.responseText)
+
+
+      var url = 'http://idsimulador.herokuapp.com/api'
+      fetch(url)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (json) {
+          console.log(json)
+        })
 
 
 
