@@ -18,6 +18,7 @@
   <br>
   <button onclick="teste()">teste</button>
   <input id="morte" type="text">
+  <input id="cluster" type="text">
 
   <script src="http://idsimulador.herokuapp.com/muni/municipios_data.json"></script>
 
@@ -26,9 +27,8 @@
       var selectBox = document.getElementById("municipios");
       var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 
-      console.log("mort ", dados[selectedValue].Mortalidade_infantil * 100)
-
       document.getElementById("morte").value = dados[selectedValue].Mortalidade_infantil * 100
+      document.getElementById("cluster").value = dados[selectedValue].$KM - K - Means
 
       document.getElementById("1").value = dados[selectedValue].Coleta_de_Lixo * 100
       document.getElementById("2").value = dados[selectedValue].IDHM_Educacao * 100
@@ -42,23 +42,24 @@
     }
     function teste() {
       var x = document.getElementById("1").value;
-      
+
       var requestOptions = {
         method: 'GET', //mode: 'cors',//'no-cors', 
         headers: {
           "Content-Type": "application/json",
           "Cod_IBGE": document.getElementById("municipios").value,
-          "Mortalidade_infantil": document.getElementById("morte").value/100,
-          "idhm_educacao": document.getElementById("1").value/100,
-          "IDHM_Educacao": document.getElementById("1").value/100,
-          "Renda_per_capita": document.getElementById("2").value/100,
-          "Grau_de_Urbanizacao": document.getElementById("3").value/100,
-          "Esgoto_Sanitario": document.getElementById("4").value/100,
-          "Estab_por_mil_Hab": document.getElementById("5").value/100,
-          "Doses_Aplicadas_mil_Hab": document.getElementById("6").value/100,
-          "Razao_Medico_mil_Hab": document.getElementById("7").value/100,
-          "Abastecimento_de_Agua": document.getElementById("8").value/100,
-          "Coleta_de_Lixo": document.getElementById("9").value/100,
+          "Mortalidade_infantil": document.getElementById("morte").value / 100,
+          "idhm_educacao": document.getElementById("1").value / 100,
+          "IDHM_Educacao": document.getElementById("1").value / 100,
+          "Renda_per_capita": document.getElementById("2").value / 100,
+          "Grau_de_Urbanizacao": document.getElementById("3").value / 100,
+          "Esgoto_Sanitario": document.getElementById("4").value / 100,
+          "Estab_por_mil_Hab": document.getElementById("5").value / 100,
+          "Doses_Aplicadas_mil_Hab": document.getElementById("6").value / 100,
+          "Razao_Medico_mil_Hab": document.getElementById("7").value / 100,
+          "Abastecimento_de_Agua": document.getElementById("8").value / 100,
+          "Coleta_de_Lixo": document.getElementById("9").value / 100,
+          "Means": document.getElementById("cluster").value
         }
         //, redirect: 'follow'
       };
@@ -72,7 +73,7 @@
         })
         .then(data => {
           console.log(data)
-          document.getElementById("morte").innerHTML = data*100;
+          document.getElementById("morte").value = data * 100;
         })
 
     }

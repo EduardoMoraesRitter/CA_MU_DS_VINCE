@@ -58,7 +58,7 @@ async function getToken() {
         let headers = {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
-        
+
         let body = {
             'apikey': 'c-MaC8NEy0LDY_wHNKyx0LhwnEei7bnAYFnXmQgxK1jp',
             'grant_type': 'urn:ibm:params:oauth:grant-type:apikey'
@@ -67,7 +67,7 @@ async function getToken() {
         let retornoResquest = await httpsRequest(
             'iam.bluemix.net',
             '/oidc/token',
-            'POST', 
+            'POST',
             headers,
             querystring.stringify(body)
         );
@@ -75,7 +75,7 @@ async function getToken() {
         if (retornoResquest >= 300 || retornoResquest < 200) {
             console.error("BBBB ", retornoResquest)
             resolve(retornoResquest)
-        }else{
+        } else {
             console.log("AAAAAAAAAAA retornoResquest:", retornoResquest)
             var aux = JSON.parse(retornoResquest)
             resolve(aux.access_token)
@@ -85,17 +85,17 @@ async function getToken() {
 
 async function modelo(token, body) {
     return new Promise(async function (resolve, reject) {
-        
+
         let headers = {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer '+token,
+            'Authorization': 'Bearer ' + token,
             'ML-Instance-ID': 'ba659903-440e-4610-850f-115a8070c983'
         }
 
         let retornoResquest = await httpsRequest(
             'us-south.ml.cloud.ibm.com',
             '/v3/wml_instances/ba659903-440e-4610-850f-115a8070c983/deployments/17615cbb-7d30-4cdf-8b8f-15db943bcca3/online',
-            'POST', 
+            'POST',
             headers,
             JSON.stringify(body)
         );
@@ -120,8 +120,8 @@ async function modelo(token, body) {
                 //console.log("BBBBBBBBBBBBBBBBBBBBBB ", retorno)
                 //resolve(retorno)
             }
-        }  
-        
+        }
+
     })
 }
 
@@ -130,46 +130,48 @@ app.get('/api', async function (event, res) {
     //res.json(event.headers)
     //return "aaaaa"
     //return event.headers.Cod_IBGE
-    
+
     let body = {
-            "fields": [
-                "Cod_IBGE",
-                "Mortalidade_infantil",
-                "IDHM_Educacao",
-                "Renda_per_capita",
-                "Grau_de_Urbanizacao",
-                "Esgoto_Sanitario",
-                "Estab_por_mil_Hab",
-                "Doses_Aplicadas_mil_Hab",
-                "Razao_Medico_mil_Hab",
-                "Abastecimento_de_Agua",
-                "Coleta_de_Lixo",
-                "$KM-K-Means"
-            ],
-            "values": [
-                [
-                    event.headers.Cod_IBGE,
-                    event.headers.Mortalidade_infantil,
-                    event.headers.IDHM_Educacao,
-                    event.headers.Renda_per_capita,
-                    event.headers.Grau_de_Urbanizacao,
-                    event.headers.Esgoto_Sanitario,
-                    event.headers.Estab_por_mil_Hab,
-                    event.headers.Doses_Aplicadas_mil_Hab,
-                    event.headers.Razao_Medico_mil_Hab,
-                    event.headers.Abastecimento_de_Agua,
-                    event.headers.Coleta_de_Lixo,
-                    'cluster-1'
-                ]
+        "fields": [
+            "Cod_IBGE",
+            "Mortalidade_infantil",
+            "IDHM_Educacao",
+            "Renda_per_capita",
+            "Grau_de_Urbanizacao",
+            "Esgoto_Sanitario",
+            "Estab_por_mil_Hab",
+            "Doses_Aplicadas_mil_Hab",
+            "Razao_Medico_mil_Hab",
+            "Abastecimento_de_Agua",
+            "Coleta_de_Lixo",
+            "$KM-K-Means"
+        ],
+        "values": [
+            [
+                event.headers.Cod_IBGE,
+                event.headers.Mortalidade_infantil,
+                event.headers.IDHM_Educacao,
+                event.headers.Renda_per_capita,
+                event.headers.Grau_de_Urbanizacao,
+                event.headers.Esgoto_Sanitario,
+                event.headers.Estab_por_mil_Hab,
+                event.headers.Doses_Aplicadas_mil_Hab,
+                event.headers.Razao_Medico_mil_Hab,
+                event.headers.Abastecimento_de_Agua,
+                event.headers.Coleta_de_Lixo,
+                event.headers.Means || 'cluster-1'
             ]
-        }
-        
+        ]
+    }
+
+    console.log("AAAAAAAAAAAAAAAAAA body:", body)
+
     let token = await getToken()
-    
+
     let retornoModelo = await modelo(token, body)
 
     res.json(retornoModelo)
-        
+
 });
 
 app.get('/', function (req, res) {
