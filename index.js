@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'simulador.html'));
 });
 
-app.use('/public', express.static('public'));
+app.use('/muni', express.static('muni'));
 
 app.listen(process.env.PORT || 5000, function () {
     console.log('foiiiii');
