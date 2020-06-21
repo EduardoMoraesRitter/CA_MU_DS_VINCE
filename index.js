@@ -152,18 +152,18 @@ app.get('/api', async function (event, res) {
         ],
         "values": [
             [
-                event.headers.Cod_IBGE,
-                event.headers.Mortalidade_infantil,
-                event.headers.IDHM_Educacao,
-                event.headers.Renda_per_capita,
-                event.headers.Grau_de_Urbanizacao,
-                event.headers.Esgoto_Sanitario,
-                event.headers.Estab_por_mil_Hab,
-                event.headers.Doses_Aplicadas_mil_Hab,
-                event.headers.Razao_Medico_mil_Hab,
-                event.headers.Abastecimento_de_Agua,
-                event.headers.Coleta_de_Lixo,
-                event.headers.Means || 'cluster-1'
+                event.headers.cod_ibge,
+                event.headers.mortalidade_infantil,
+                event.headers.idhm_educacao,
+                event.headers.renda_per_capita,
+                event.headers.grau_de_urbanizacao,
+                event.headers.esgoto_sanitario,
+                event.headers.estab_por_mil_hab,
+                event.headers.doses_aplicadas_mil_hab,
+                event.headers.razao_medico_mil_hab,
+                event.headers.abastecimento_de_agua,
+                event.headers.coleta_de_lixo,
+                event.headers.means
             ]
         ]
     }
