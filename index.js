@@ -123,7 +123,7 @@ async function modelo(token, body) {
 
 app.get('/api', function (req, res) {
 
-    res.json("req.header")
+    res.json(req.headers)
     //return "aaaaa"
     
     //return event.headers.Cod_IBGE
