@@ -121,7 +121,7 @@ async function modelo(token, body) {
     })
 }
 
-app.get('/api', function (event, res) {
+app.get('/api', async function (event, res) {
 
     //res.json(event.headers)
     //return "aaaaa"
