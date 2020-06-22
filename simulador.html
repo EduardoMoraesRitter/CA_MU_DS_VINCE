@@ -7,31 +7,31 @@
   <select id="municipios" onchange="changeFunc();"></select>
   <br><input id="cluster" type="text"><br>
   <label>IDHM_Educacao:</label>
-  <input id="1" type="range" min="0" max="100" step="0.1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="1" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="1t"></label><br>
   <label>Renda_per_capita:</label>
-  <input id="2" type="range" min="0" max="100" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="2" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="2t"></label><br>
   <label>Grau_de_Urbanizacao:</label>
-  <input id="3" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="3" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="3t"></label><br>
   <label>Esgoto_Sanitario:</label>
-  <input id="4" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="4" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="4t"></label><br>
   <label>Estab_por_mil_Hab:</label>
-  <input id="5" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="5" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="5t"></label><br>
   <label>Doses_Aplicadas_mil_Hab:</label>
-  <input id="6" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="6" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="6t"></label><br>
   <label>Razao_Medico_mil_Hab:</label>
-  <input id="7" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="7" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="7t"></label><br>
   <label>Abastecimento_de_Agua:</label>
-  <input id="8" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="8" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="8t"></label><br>
   <label>Coleta_de_Lixo:</label>
-  <input id="9" type="range" min="0" max="100" step="1" value="50" data-orientation="vertical" onClick="showVal(this)" >
+  <input id="9" type="range" min="0" max="1" step="0.01" value="50" data-orientation="vertical" onClick="showVal(this)" >
   <label id="9t"></label><br>
   <label>Mortalidade Atual:</label><input id="morte" type="text">
   <br>
@@ -52,26 +52,26 @@
       var selectBox = document.getElementById("municipios");
       var selectedValue = selectBox.options[selectBox.selectedIndex].value;
 
-      document.getElementById("morte").value = dados[selectedValue].Mortalidade_infantil * 100
+      document.getElementById("morte").value = dados[selectedValue].Mortalidade_infantil
       document.getElementById("cluster").value = dados[selectedValue].Means
 
-      document.getElementById("1").value = dados[selectedValue].Coleta_de_Lixo * 100
+      document.getElementById("1").value = dados[selectedValue].IDHM_Educacao
       document.getElementById('1t').innerHTML = document.getElementById("1").value 
-      document.getElementById("2").value = dados[selectedValue].IDHM_Educacao * 100
+      document.getElementById("2").value = dados[selectedValue].Renda_per_capita
       document.getElementById('2t').innerHTML = document.getElementById("2").value
-      document.getElementById("3").value = dados[selectedValue].Renda_per_capita * 100
+      document.getElementById("3").value = dados[selectedValue].Grau_de_Urbanizacao
       document.getElementById('3t').innerHTML = document.getElementById("3").value
-      document.getElementById("4").value = dados[selectedValue].Grau_de_Urbanizacao * 100
+      document.getElementById("4").value = dados[selectedValue].Esgoto_Sanitario
       document.getElementById('4t').innerHTML = document.getElementById("4").value
-      document.getElementById("5").value = dados[selectedValue].Esgoto_Sanitario * 100
+      document.getElementById("5").value = dados[selectedValue].Estab_por_mil_Hab
       document.getElementById('5t').innerHTML = document.getElementById("5").value
-      document.getElementById("6").value = dados[selectedValue].Estab_por_mil_Hab * 100
+      document.getElementById("6").value = dados[selectedValue].Doses_Aplicadas_mil_Hab
       document.getElementById('6t').innerHTML = document.getElementById("6").value
-      document.getElementById("7").value = dados[selectedValue].Doses_Aplicadas_mil_Hab * 100
+      document.getElementById("7").value = dados[selectedValue].Razao_Medico_mil_Hab
       document.getElementById('7t').innerHTML = document.getElementById("7").value
-      document.getElementById("8").value = dados[selectedValue].Razao_Medico_mil_Hab * 100
+      document.getElementById("8").value = dados[selectedValue].Abastecimento_de_Agua
       document.getElementById('8t').innerHTML = document.getElementById("8").value
-      document.getElementById("9").value = dados[selectedValue].Abastecimento_de_Agua * 100
+      document.getElementById("9").value = dados[selectedValue].Coleta_de_Lixo
       document.getElementById('9t').innerHTML = document.getElementById("9").value
     }
 
@@ -83,17 +83,17 @@
         headers: {
           "Content-Type": "application/json",
           "Cod_IBGE": document.getElementById("municipios").value,
-          "Mortalidade_infantil": document.getElementById("morte").value / 100,
-          //"idhm_educacao": document.getElementById("1").value / 100,
-          "IDHM_Educacao": document.getElementById("1").value / 100,
-          "Renda_per_capita": document.getElementById("2").value / 100,
-          "Grau_de_Urbanizacao": document.getElementById("3").value / 100,
-          "Esgoto_Sanitario": document.getElementById("4").value / 100,
-          "Estab_por_mil_Hab": document.getElementById("5").value / 100,
-          "Doses_Aplicadas_mil_Hab": document.getElementById("6").value / 100,
-          "Razao_Medico_mil_Hab": document.getElementById("7").value / 100,
-          "Abastecimento_de_Agua": document.getElementById("8").value / 100,
-          "Coleta_de_Lixo": document.getElementById("9").value / 100,
+          "Mortalidade_infantil": document.getElementById("morte").value,
+          //"idhm_educacao": document.getElementById("1").value,
+          "IDHM_Educacao": document.getElementById("1").value,
+          "Renda_per_capita": document.getElementById("2").value,
+          "Grau_de_Urbanizacao": document.getElementById("3").value,
+          "Esgoto_Sanitario": document.getElementById("4").value,
+          "Estab_por_mil_Hab": document.getElementById("5").value,
+          "Doses_Aplicadas_mil_Hab": document.getElementById("6").value,
+          "Razao_Medico_mil_Hab": document.getElementById("7").value,
+          "Abastecimento_de_Agua": document.getElementById("8").value,
+          "Coleta_de_Lixo": document.getElementById("9").value,
           "Means": document.getElementById("cluster").value
         }
         //, redirect: 'follow'
@@ -108,14 +108,14 @@
         })
         .then(data => {
           console.log(data)
-          document.getElementById("morte_simulada").value = data * 100;
+          document.getElementById("morte_simulada").value = data;
         })
 
     }
     var html = "<option value='none'>Escolha</option>"
     for (let index = 0; index < dados.length; index++) {
       const e = dados[index];
-      html += "<option value=" + index + ">" + e.Municipio + "</option>"
+      html += "<option value=" + index + ">" + e.Municipio + " - " + e.Mortalidade_infantil + "</option>"
     }
     document.getElementById("municipios").innerHTML = html;
   </script>
