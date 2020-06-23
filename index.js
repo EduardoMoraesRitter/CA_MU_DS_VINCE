@@ -113,6 +113,8 @@ async function modelo(token, body) {
 
             } else {
                 var aux = JSON.parse(retornoResquest)
+
+                console.log("RRRRRRRRRRRRRRRRRRRRRRRaux ", aux)
                 //return aux.values[0][0]
                 resolve(aux.values[0][0])
                 //data = data.results[0]
