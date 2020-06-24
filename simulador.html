@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <html>
 
-<body style="font-size: 150%">
+<body style="font-size: 150%; background-color: #f6f6f6;">
 
-  
-  <label>Escolha o Municipio: </label><select id="municipios" onchange="escolha();"></select><br><br>
-  <label>Pertence ao Grupo: </label><label id="cluster"></label><br>
+  <p><img src="http://idsimulador.herokuapp.com/muni/agil.jpeg"></p>
+
+  <label>Escolha o Municipio: </label><select id="municipios" onchange="escolha();"></select>
+  <label>   Pertence ao Grupo: </label><label id="cluster"></label><br>
 
   <table border="0" style='width:100%'>
     <tr>
-      <th style="width:5%">Valor Real</th>
-      <th style="width:15%">valores</th>
+      <th style="width:20%">Descrição</th>
+      <th style="width:5%">Real</th>
       <th style="width:15%">Range</th>
-      <th style="width:5%">Simulacao 1</th>
-      <th style="width:5%">Simulacao 2</th>
-      <th style="width:5%">Simulacao 3</th>
-      <th style="width:5%">Simulacao 4</th>
-      <th style="width:5%">Simulacao 5</th>
+      <th style="width:5%">Simulação 1</th>
+      <th style="width:5%">Simulação 2</th>
+      <th style="width:5%">Simulação 3</th>
+      <th style="width:5%">Simulação 4</th>
+      <th style="width:5%">Simulação 5</th>
     </tr>
     <tr>
+      <td><label>IDHM Educação:</label></td>
       <td><label id="1r"></label></td>
-      <td><label>IDHM_Educacao:</label></td>
       <td><input id="1" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="1t"></label></td>
         <td><label id="1c1t"></label></td>
@@ -30,8 +31,8 @@
         <td><label id="5c1t"></label></td>
     </tr>
     <tr>
+      <td><label>Renda Per Capita:</label></td>
       <td><label id="2r"></label></td>
-      <td><label>Renda_per_capi:</label></td>
       <td><input id="2" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="2t"></label></td>
         <td><label id="1c2t"></label></td>
@@ -41,8 +42,8 @@
         <td><label id="5c2t"></label></td>
     </tr>
     <tr>
+      <td><label>Grau de Urbanização:</label></td>
       <td><label id="3r"></label></td>
-      <td><label>Grau_de_Urbani:</label></td>
       <td><input id="3" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="3t"></label></td>
         <td><label id="1c3t"></label></td>
@@ -52,8 +53,8 @@
         <td><label id="5c3t"></label></td>
     </tr>
     <tr>
+      <td><label>Nível de Atendimento de Esgoto Sanitário:</label></td>
       <td><label id="4r"></label></td>
-      <td><label>Esgoto_Sanitar:</label></td>
       <td><input id="4" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="4t"></label></td>
         <td><label id="1c4t"></label></td>
@@ -63,8 +64,8 @@
         <td><label id="5c4t"></label></td>
     </tr>
     <tr>
+      <td><label>Estabelecimentos de Saúde:</label></td>
       <td><label id="5r"></label></td>
-      <td><label>Estab_por_mil_:</label></td>
       <td><input id="5" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="5t"></label></td>
         <td><label id="1c5t"></label></td>
@@ -74,8 +75,8 @@
         <td><label id="5c5t"></label></td>
     </tr>
     <tr>
+      <td><label>Índice de Doses Aplicadas de Vacinas:</label></td>
       <td><label id="6r"></label></td>
-      <td><label>Doses_Aplicada:</label></td>
       <td><input id="6" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="6t"></label></td>
         <td><label id="1c6t"></label></td>
@@ -85,8 +86,8 @@
         <td><label id="5c6t"></label></td>
     </tr>
     <tr>
+      <td><label>Índice de Médicos por mil habitantes:</label></td>
       <td><label id="7r"></label></td>
-      <td><label>Razao_Medico_m:</label></td>
       <td><input id="7" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="7t"></label></td>
         <td><label id="1c7t"></label></td>
@@ -96,8 +97,8 @@
         <td><label id="5c7t"></label></td>
     </tr>
     <tr>
+      <td><label>Nível de Atendimento de Abastecimento de Água:</label></td>
       <td><label id="8r"></label></td>
-      <td><label>Abastecimento_:</label></td>
       <td><input id="8" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="8t"></label></td>
         <td><label id="1c8t"></label></td>
@@ -107,8 +108,8 @@
         <td><label id="5c8t"></label></td>
     </tr>
     <tr>
+      <td><label>Nível de Atendimento de Coleta de Lixo:</label></td>
       <td><label id="9r"></label></td>
-      <td><label>Coleta_de_Lixo:</label></td>
       <td><input id="9" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
         <label id="9t"></label></td>
         <td><label id="1c9t"></label></td>
@@ -118,8 +119,8 @@
         <td><label id="5c9t"></label></td>
     </tr>
     <tr>
+      <td><label>Índice de Mortalidade Infantil:</label></td>
       <td><label id="morte"></label></td>
-      <td><label>Mortalidade:</label></td>
       <td><label id="10t"></label></td>
       <td><label id="1c10t"></label></td>
       <td><label id="2c10t"></label></td>
