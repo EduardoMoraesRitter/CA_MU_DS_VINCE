@@ -2,17 +2,26 @@
 <html>
 
 <body style="font-size: 150%; background-color: #f6f6f6;">
-
-  <p><img src="http://idsimulador.herokuapp.com/muni/dvince.jpeg"></p>
-
-  <label>Escolha o Municipio: </label><select id="municipios" onchange="escolha();"></select>
-  <label>   Pertence ao Grupo: </label><label id="cluster"></label><br>
-
+  <!-- <p>
+  </div>
+   <div align="right">  <img src="http://idsimulador.herokuapp.com/muni/dvince.jpeg" height="250" width="200">
+  </div>
+</p> -->
+<img align="left" src="http://idsimulador.herokuapp.com/muni/agil.jpeg" height="50" width="200">
+  <br>
+  <br>
+  <p>
+    <label>Escolha o Municipio: </label><select id="municipios" onchange="escolha();"></select>
+    <label> Pertence ao Grupo: </label><label id="cluster"></label>
+  </p>
+  <!--  -->
+  <br>
+  <br>
   <table border="0" style='width:100%'>
     <tr>
       <th style="width:20%">Descrição</th>
       <th style="width:5%">Real</th>
-      <th style="width:15%">Range</th>
+      <th style="width:10%">Simulador</th>
       <th style="width:5%">Simulação 1</th>
       <th style="width:5%">Simulação 2</th>
       <th style="width:5%">Simulação 3</th>
@@ -22,101 +31,101 @@
     <tr>
       <td><label>IDHM Educação:</label></td>
       <td><label id="1r"></label></td>
-      <td><input id="1" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="1" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="1t"></label></td>
-        <td><label id="1c1t"></label></td>
-        <td><label id="2c1t"></label></td>
-        <td><label id="3c1t"></label></td>
-        <td><label id="4c1t"></label></td>
-        <td><label id="5c1t"></label></td>
+      <td><label id="1c1t"></label></td>
+      <td><label id="2c1t"></label></td>
+      <td><label id="3c1t"></label></td>
+      <td><label id="4c1t"></label></td>
+      <td><label id="5c1t"></label></td>
     </tr>
     <tr>
       <td><label>Renda Per Capita:</label></td>
       <td><label id="2r"></label></td>
-      <td><input id="2" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="2" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="2t"></label></td>
-        <td><label id="1c2t"></label></td>
-        <td><label id="2c2t"></label></td>
-        <td><label id="3c2t"></label></td>
-        <td><label id="4c2t"></label></td>
-        <td><label id="5c2t"></label></td>
+      <td><label id="1c2t"></label></td>
+      <td><label id="2c2t"></label></td>
+      <td><label id="3c2t"></label></td>
+      <td><label id="4c2t"></label></td>
+      <td><label id="5c2t"></label></td>
     </tr>
     <tr>
       <td><label>Grau de Urbanização:</label></td>
       <td><label id="3r"></label></td>
-      <td><input id="3" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="3" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="3t"></label></td>
-        <td><label id="1c3t"></label></td>
-        <td><label id="2c3t"></label></td>
-        <td><label id="3c3t"></label></td>
-        <td><label id="4c3t"></label></td>
-        <td><label id="5c3t"></label></td>
+      <td><label id="1c3t"></label></td>
+      <td><label id="2c3t"></label></td>
+      <td><label id="3c3t"></label></td>
+      <td><label id="4c3t"></label></td>
+      <td><label id="5c3t"></label></td>
     </tr>
     <tr>
       <td><label>Nível de Atendimento de Esgoto Sanitário:</label></td>
       <td><label id="4r"></label></td>
-      <td><input id="4" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="4" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="4t"></label></td>
-        <td><label id="1c4t"></label></td>
-        <td><label id="2c4t"></label></td>
-        <td><label id="3c4t"></label></td>
-        <td><label id="4c4t"></label></td>
-        <td><label id="5c4t"></label></td>
+      <td><label id="1c4t"></label></td>
+      <td><label id="2c4t"></label></td>
+      <td><label id="3c4t"></label></td>
+      <td><label id="4c4t"></label></td>
+      <td><label id="5c4t"></label></td>
     </tr>
     <tr>
       <td><label>Estabelecimentos de Saúde:</label></td>
       <td><label id="5r"></label></td>
-      <td><input id="5" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="5" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="5t"></label></td>
-        <td><label id="1c5t"></label></td>
-        <td><label id="2c5t"></label></td>
-        <td><label id="3c5t"></label></td>
-        <td><label id="4c5t"></label></td>
-        <td><label id="5c5t"></label></td>
+      <td><label id="1c5t"></label></td>
+      <td><label id="2c5t"></label></td>
+      <td><label id="3c5t"></label></td>
+      <td><label id="4c5t"></label></td>
+      <td><label id="5c5t"></label></td>
     </tr>
     <tr>
       <td><label>Índice de Doses Aplicadas de Vacinas:</label></td>
       <td><label id="6r"></label></td>
-      <td><input id="6" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="6" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="6t"></label></td>
-        <td><label id="1c6t"></label></td>
-        <td><label id="2c6t"></label></td>
-        <td><label id="3c6t"></label></td>
-        <td><label id="4c6t"></label></td>
-        <td><label id="5c6t"></label></td>
+      <td><label id="1c6t"></label></td>
+      <td><label id="2c6t"></label></td>
+      <td><label id="3c6t"></label></td>
+      <td><label id="4c6t"></label></td>
+      <td><label id="5c6t"></label></td>
     </tr>
     <tr>
       <td><label>Índice de Médicos por mil habitantes:</label></td>
       <td><label id="7r"></label></td>
-      <td><input id="7" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="7" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="7t"></label></td>
-        <td><label id="1c7t"></label></td>
-        <td><label id="2c7t"></label></td>
-        <td><label id="3c7t"></label></td>
-        <td><label id="4c7t"></label></td>
-        <td><label id="5c7t"></label></td>
+      <td><label id="1c7t"></label></td>
+      <td><label id="2c7t"></label></td>
+      <td><label id="3c7t"></label></td>
+      <td><label id="4c7t"></label></td>
+      <td><label id="5c7t"></label></td>
     </tr>
     <tr>
       <td><label>Nível de Atendimento de Abastecimento de Água:</label></td>
       <td><label id="8r"></label></td>
-      <td><input id="8" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="8" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="8t"></label></td>
-        <td><label id="1c8t"></label></td>
-        <td><label id="2c8t"></label></td>
-        <td><label id="3c8t"></label></td>
-        <td><label id="4c8t"></label></td>
-        <td><label id="5c8t"></label></td>
+      <td><label id="1c8t"></label></td>
+      <td><label id="2c8t"></label></td>
+      <td><label id="3c8t"></label></td>
+      <td><label id="4c8t"></label></td>
+      <td><label id="5c8t"></label></td>
     </tr>
     <tr>
       <td><label>Nível de Atendimento de Coleta de Lixo:</label></td>
       <td><label id="9r"></label></td>
-      <td><input id="9" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)" >
+      <td><input id="9" type="range" min="0" max="1" step="0.01" value="50" onClick="motra(this)">
         <label id="9t"></label></td>
-        <td><label id="1c9t"></label></td>
-        <td><label id="2c9t"></label></td>
-        <td><label id="3c9t"></label></td>
-        <td><label id="4c9t"></label></td>
-        <td><label id="5c9t"></label></td>
+      <td><label id="1c9t"></label></td>
+      <td><label id="2c9t"></label></td>
+      <td><label id="3c9t"></label></td>
+      <td><label id="4c9t"></label></td>
+      <td><label id="5c9t"></label></td>
     </tr>
     <tr>
       <td><label>Índice de Mortalidade Infantil:</label></td>
@@ -129,40 +138,40 @@
       <td><label id="5c10t"></label></td>
     </tr>
     <tr>
-      <td><button onclick="resetar()">resetar</button></td>
-      <td><button onclick="simular()">Simular</button></td>
       <td></td>
-      <td><button onclick="save(1)">salver 1</button></td>
-      <td><button onclick="save(2)">salver 2</button></td>
-      <td><button onclick="save(3)">salver 3</button></td>
-      <td><button onclick="save(4)">salver 4</button></td>
-      <td><button onclick="save(5)">salver 5</button></td>
+      <td><button onclick="resetar()">Voltar Valor Real</button></td>
+      <td align="center"><button onclick="simular()">Simular</button></td>
+      <td><button onclick="save(1)">Grava simulação 1</button></td>
+      <td><button onclick="save(2)">Grava simulação 2</button></td>
+      <td><button onclick="save(3)">Grava simulação 3</button></td>
+      <td><button onclick="save(4)">Grava simulação 4</button></td>
+      <td><button onclick="save(5)">Grava simulação 5</button></td>
     </tr>
-  </table>  
+  </table>
   <br>
-  
+
   <script src="http://idsimulador.herokuapp.com/muni/municipios_data.json"></script>
 
   <script>
 
-    function resetar(){
+    function resetar() {
       for (let i = 1; i <= 9; i++) {
-        document.getElementById(i+'t').innerHTML=document.getElementById(i+'r').innerHTML;
-        document.getElementById(i).value=document.getElementById(i+'r').innerHTML;
+        document.getElementById(i + 't').innerHTML = document.getElementById(i + 'r').innerHTML;
+        document.getElementById(i).value = document.getElementById(i + 'r').innerHTML;
       }
-      document.getElementById('10t').innerHTML=document.getElementById('morte').innerHTML;
+      document.getElementById('10t').innerHTML = document.getElementById('morte').innerHTML;
     }
 
-    function save(number){
+    function save(number) {
       for (let i = 1; i <= 10; i++) {
-        document.getElementById(number+'c'+i+'t').innerHTML=document.getElementById(i+'t').innerHTML;        
+        document.getElementById(number + 'c' + i + 't').innerHTML = document.getElementById(i + 't').innerHTML;
       }
     }
 
-    function motra(newVal){
-        document.getElementById(newVal.id+'t').innerHTML=newVal.value;
-        simular()
-      }
+    function motra(newVal) {
+      document.getElementById(newVal.id + 't').innerHTML = newVal.value;
+      simular()
+    }
 
     function escolha() {
       var selectBox = document.getElementById("municipios");
@@ -173,39 +182,39 @@
       document.getElementById("morte").innerHTML = parseFloat(dados[selectedValue].Mortalidade_infantil).toFixed(2)
       document.getElementById("cluster").innerHTML = dados[selectedValue].Means
 
-      document.getElementById("1").value =parseFloat(dados[selectedValue].IDHM_Educacao).toFixed(2)
+      document.getElementById("1").value = parseFloat(dados[selectedValue].IDHM_Educacao).toFixed(2)
       document.getElementById('1t').innerHTML = document.getElementById("1").value
       document.getElementById('1r').innerHTML = document.getElementById("1").value
 
-      document.getElementById("2").value =parseFloat(dados[selectedValue].Renda_per_capita).toFixed(2)
+      document.getElementById("2").value = parseFloat(dados[selectedValue].Renda_per_capita).toFixed(2)
       document.getElementById('2t').innerHTML = document.getElementById("2").value
       document.getElementById('2r').innerHTML = document.getElementById("2").value
 
-      document.getElementById("3").value =parseFloat(dados[selectedValue].Grau_de_Urbanizacao).toFixed(2)
+      document.getElementById("3").value = parseFloat(dados[selectedValue].Grau_de_Urbanizacao).toFixed(2)
       document.getElementById('3t').innerHTML = document.getElementById("3").value
       document.getElementById('3r').innerHTML = document.getElementById("3").value
 
-      document.getElementById("4").value =parseFloat(dados[selectedValue].Esgoto_Sanitario).toFixed(2)
+      document.getElementById("4").value = parseFloat(dados[selectedValue].Esgoto_Sanitario).toFixed(2)
       document.getElementById('4t').innerHTML = document.getElementById("4").value
       document.getElementById('4r').innerHTML = document.getElementById("4").value
 
-      document.getElementById("5").value =parseFloat(dados[selectedValue].Estab_por_mil_Hab).toFixed(2)
+      document.getElementById("5").value = parseFloat(dados[selectedValue].Estab_por_mil_Hab).toFixed(2)
       document.getElementById('5t').innerHTML = document.getElementById("5").value
       document.getElementById('5r').innerHTML = document.getElementById("5").value
 
-      document.getElementById("6").value =parseFloat(dados[selectedValue].Doses_Aplicadas_mil_Hab).toFixed(2)
+      document.getElementById("6").value = parseFloat(dados[selectedValue].Doses_Aplicadas_mil_Hab).toFixed(2)
       document.getElementById('6t').innerHTML = document.getElementById("6").value
       document.getElementById('6r').innerHTML = document.getElementById("6").value
 
-      document.getElementById("7").value =parseFloat(dados[selectedValue].Razao_Medico_mil_Hab).toFixed(2)
+      document.getElementById("7").value = parseFloat(dados[selectedValue].Razao_Medico_mil_Hab).toFixed(2)
       document.getElementById('7t').innerHTML = document.getElementById("7").value
       document.getElementById('7r').innerHTML = document.getElementById("7").value
 
-      document.getElementById("8").value =parseFloat(dados[selectedValue].Abastecimento_de_Agua).toFixed(2)
+      document.getElementById("8").value = parseFloat(dados[selectedValue].Abastecimento_de_Agua).toFixed(2)
       document.getElementById('8t').innerHTML = document.getElementById("8").value
       document.getElementById('8r').innerHTML = document.getElementById("8").value
 
-      document.getElementById("9").value =parseFloat(dados[selectedValue].Coleta_de_Lixo).toFixed(2)
+      document.getElementById("9").value = parseFloat(dados[selectedValue].Coleta_de_Lixo).toFixed(2)
       document.getElementById('9t').innerHTML = document.getElementById("9").value
       document.getElementById('9r').innerHTML = document.getElementById("9").value
 
