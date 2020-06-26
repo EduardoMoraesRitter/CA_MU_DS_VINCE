@@ -180,7 +180,7 @@
 
       console.log(dados[selectedValue])
 
-      document.getElementById("morte").innerHTML = parseFloat(dados[selectedValue].Mortalidade_infantil) * 166.67
+      document.getElementById("morte").innerHTML = (parseFloat(dados[selectedValue].Mortalidade_infantil) * 166.67).toFixed(2)
       document.getElementById("cluster").innerHTML = dados[selectedValue].Means
 
       document.getElementById("1").value = parseFloat(dados[selectedValue].IDHM_Educacao).toFixed(2)
@@ -254,14 +254,14 @@
         })
         .then(data => {
           console.log(data)
-          document.getElementById("10t").innerHTML = parseFloat(data) * 166.67
+          document.getElementById("10t").innerHTML = (parseFloat(data) * 166.67).toFixed(2)
         })
 
     }
     var html = "<option value='none'>Escolha</option>"
     for (let index = 0; index < dados.length; index++) {
       const e = dados[index];
-      html += "<option value=" + index + ">" + e.Municipio + " - " + e.Mortalidade_infantil * 166.67 + "</option>"
+      html += "<option value=" + index + ">" + e.Municipio + " - " + (parseFloat(e.Mortalidade_infantil) * 166.67).toFixed(2) + "</option>"
     }
     document.getElementById("municipios").innerHTML = html;
   </script>
