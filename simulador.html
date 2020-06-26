@@ -180,7 +180,7 @@
 
       console.log(dados[selectedValue])
 
-      document.getElementById("morte").innerHTML = parseFloat(dados[selectedValue].Mortalidade_infantil).toFixed(2)
+      document.getElementById("morte").innerHTML = parseFloat(dados[selectedValue].Mortalidade_infantil) * 166.67
       document.getElementById("cluster").innerHTML = dados[selectedValue].Means
 
       document.getElementById("1").value = parseFloat(dados[selectedValue].IDHM_Educacao).toFixed(2)
@@ -254,7 +254,7 @@
         })
         .then(data => {
           console.log(data)
-          document.getElementById("10t").innerHTML = parseFloat(data).toFixed(4)
+          document.getElementById("10t").innerHTML = parseFloat(data) * 166.67
         })
 
     }
