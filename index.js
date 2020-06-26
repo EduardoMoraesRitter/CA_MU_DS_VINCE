@@ -83,7 +83,7 @@ async function getToken() {
     })
 }
 
-async function modelo(token, body) {
+async function modelo(token, body, cluster) {
     return new Promise(async function (resolve, reject) {
 
         let headers = {
@@ -92,9 +92,17 @@ async function modelo(token, body) {
             'ML-Instance-ID': 'ba659903-440e-4610-850f-115a8070c983'
         }
 
+        if(cluster=="cluster-1"){
+            cluster = '17615cbb-7d30-4cdf-8b8f-15db943bcca3'
+        }else if(cluster=="cluster-2"){
+            cluster = '4a35839a-87cf-4d6d-8478-e1800b67c018'
+        }else{
+            cluster = '03ddaeb3-a667-4087-922a-043229e0dce6'
+        }
+
         let retornoResquest = await httpsRequest(
             'us-south.ml.cloud.ibm.com',
-            '/v3/wml_instances/ba659903-440e-4610-850f-115a8070c983/deployments/17615cbb-7d30-4cdf-8b8f-15db943bcca3/online',
+            '/v3/wml_instances/ba659903-440e-4610-850f-115a8070c983/deployments/'+cluster+'/online',
             'POST',
             headers,
             JSON.stringify(body)
@@ -174,7 +182,7 @@ app.get('/api', async function (event, res) {
 
     let token = await getToken()
 
-    let retornoModelo = await modelo(token, body)
+    let retornoModelo = await modelo(token, body, event.headers.means)
 
     res.json(retornoModelo)
 
